@@ -22,16 +22,16 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long companyId;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String companyName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String companyEmail;
 
     @Column(name = "phone_code")
     private int companyPhoneCode;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", unique = true)
     private long companyPhoneNumber;
 
     @Column(name = "active")
