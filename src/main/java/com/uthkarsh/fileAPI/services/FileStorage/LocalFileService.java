@@ -1,4 +1,4 @@
-package com.uthkarsh.fileAPI.services;
+package com.uthkarsh.fileAPI.services.FileStorage;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-public class FileService {
+public class LocalFileService {
     @Value("${file.upload.path}")
     private String path;
 
