@@ -1,6 +1,6 @@
 package com.uthkarsh.fileAPI.controller.compnay;
 
-import com.uthkarsh.fileAPI.dto.CompanyDTO;
+import com.uthkarsh.fileAPI.dto.compnay.CompanyDTO;
 import com.uthkarsh.fileAPI.services.CompanyService.AddCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

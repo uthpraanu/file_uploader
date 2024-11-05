@@ -20,16 +20,16 @@ public class Vendor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vendorId;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "phone_code")
     private int phoneCode;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", unique = true)
     private Long phoneNumber;
 
     @Column(name = "active")

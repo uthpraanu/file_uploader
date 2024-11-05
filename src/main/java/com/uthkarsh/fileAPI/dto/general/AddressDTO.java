@@ -1,4 +1,4 @@
-package com.uthkarsh.fileAPI.dto;
+package com.uthkarsh.fileAPI.dto.general;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

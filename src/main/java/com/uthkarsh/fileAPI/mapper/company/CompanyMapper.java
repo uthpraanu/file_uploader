@@ -1,6 +1,6 @@
 package com.uthkarsh.fileAPI.mapper.company;
 
-import com.uthkarsh.fileAPI.dto.CompanyDTO;
+import com.uthkarsh.fileAPI.dto.compnay.CompanyDTO;
 import com.uthkarsh.fileAPI.entity.general.Address;
 import com.uthkarsh.fileAPI.entity.organization.Company;
 

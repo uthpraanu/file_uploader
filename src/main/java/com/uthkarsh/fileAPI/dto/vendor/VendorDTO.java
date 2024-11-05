@@ -1,7 +1,8 @@
-package com.uthkarsh.fileAPI.dto;
+package com.uthkarsh.fileAPI.dto.vendor;
 
+import com.uthkarsh.fileAPI.dto.general.AddressDTO;
 import com.uthkarsh.fileAPI.entity.general.Address;
-import com.uthkarsh.fileAPI.entity.orders.PurchaseOrder;
+import com.uthkarsh.fileAPI.entity.orders.OrderQuotation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,19 +16,19 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CompanyDTO {
+public class VendorDTO {
 
-    private String companyName;
+    private String name;
 
-    private String companyEmail;
+    private String email;
 
-    private int companyPhoneCode;
+    private int phoneCode;
 
-    private long companyPhoneNumber;
+    private Long phoneNumber;
 
     private Boolean active;
 
-    // Foreign keys or RelationShips
+    // Foreign key and relations
 
     private AddressDTO address;
 

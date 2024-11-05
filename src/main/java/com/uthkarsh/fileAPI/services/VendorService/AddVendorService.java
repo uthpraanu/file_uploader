@@ -1,30 +1,30 @@
-package com.uthkarsh.fileAPI.services.CompanyService;
+package com.uthkarsh.fileAPI.services.VendorService;
 
-import com.uthkarsh.fileAPI.dto.compnay.CompanyDTO;
-import com.uthkarsh.fileAPI.entity.organization.Company;
+import com.uthkarsh.fileAPI.dto.vendor.VendorDTO;
+import com.uthkarsh.fileAPI.entity.organization.Vendor;
 import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
-import com.uthkarsh.fileAPI.mapper.company.CompanyMapper;
-import com.uthkarsh.fileAPI.repository.organization.CompanyRepository;
+import com.uthkarsh.fileAPI.mapper.vendor.VendorMapper;
+import com.uthkarsh.fileAPI.repository.organization.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ResourceBundle;
+
 @Service
-public class AddCompanyService {
+public class AddVendorService {
     @Autowired
-    private CompanyRepository companyRepository;
+    private VendorRepository vendorRepository;
 
-
-    public ResponseEntity<?> addCompany(CompanyDTO companyDTO){
-
+    public ResponseEntity<?> addVendor(VendorDTO vendorDTO){
         try{
-            Company c = CompanyMapper.mapIt(companyDTO);
+            Vendor vendor = VendorMapper.mapIt(vendorDTO);
 
-            companyRepository.save(c);
+            vendorRepository.save(vendor);
 
-            return ResponseEntity.ok("Saved successfully to the database");
+            return ResponseEntity.ok("Vendor saved successfully");
         }
         catch (DataIntegrityViolationException ex){
             throw new RepositoryException("Duplicate entity");
@@ -32,6 +32,5 @@ public class AddCompanyService {
         catch (Exception e){
             throw new ServiceFailedException("Internal error occured");
         }
-
     }
 }
