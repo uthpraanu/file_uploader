@@ -78,7 +78,7 @@ public class UploadQuotationService {
             throw new FileNotFoundException("file not found");
         }
 
-        quotation.setName(file.getName());
+        quotation.setName(file.getOriginalFilename());
         quotation.setFileSize(file.getSize());
         quotation.setFileType(file.getContentType());
 
