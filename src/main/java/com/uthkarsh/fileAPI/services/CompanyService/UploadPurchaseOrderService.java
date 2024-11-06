@@ -66,7 +66,7 @@ public class UploadPurchaseOrderService {
             throw new FileNotFoundException("file not found");
         }
 
-        purchaseOrder.setOrderName(file.getName());
+        purchaseOrder.setOrderName(file.getOriginalFilename());
         purchaseOrder.setFileSize(file.getSize());
         purchaseOrder.setFileType(file.getContentType());
 

@@ -24,7 +24,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
-public class UploadQuotation {
+public class UploadQuotationService {
 
     @Value("${file.upload.path}")
     private String path;
