@@ -20,7 +20,7 @@ public class CompanyMapper {
         company.setCompanyName(companyDTO.getCompanyName());
         company.setCompanyEmail(companyDTO.getCompanyEmail());
         company.setCompanyPhoneCode(companyDTO.getCompanyPhoneCode());
-        company.setCompanyPhoneNumber(companyDTO.getCompanyPhoneCode());
+        company.setCompanyPhoneNumber(companyDTO.getCompanyPhoneNumber());
         company.setActive(companyDTO.getActive());
         company.setAddress(address);
 

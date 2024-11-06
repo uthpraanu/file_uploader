@@ -1,5 +1,6 @@
 package com.uthkarsh.fileAPI.exception.global;
 
+import com.uthkarsh.fileAPI.exception.FileNotFoundException;
 import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
 import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
@@ -21,6 +22,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleRepositoryException(RepositoryException ex){
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(FileNotFoundException.class)
+    public ResponseEntity<?> handleFileNotFoundException(FileNotFoundException ex){
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
     }
 

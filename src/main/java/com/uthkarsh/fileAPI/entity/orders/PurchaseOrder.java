@@ -24,14 +24,11 @@ public class PurchaseOrder {
     @Column(name = "name")
     private String orderName;
 
-    @Column(name = "url")
-    private String orderUrlPath;
-
     @Column(name = "file_size")
     private Long fileSize;
 
     @Column(name = "file_type")
-    private Long fileType;
+    private String fileType;
 
     @Column(name = "upload_date")
     private LocalDate uploadDate;
@@ -48,8 +45,14 @@ public class PurchaseOrder {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "url")
+    private String orderUrlPath;
+
     @Column(name = "file_hash")
     private String fileHash;
+
+    @Column(name = "file_url")
+    private String fileUrl;
 
     // Foreign key and relations
 

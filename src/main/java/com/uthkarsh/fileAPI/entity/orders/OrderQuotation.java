@@ -24,9 +24,6 @@ public class OrderQuotation {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "url")
-    private String path;
-
     @Column(name = "file_size")
     private Long fileSize;
 
@@ -44,6 +41,9 @@ public class OrderQuotation {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "url")
+    private String path;
 
     @Column(name = "file_hash")
     private String fileHash;
