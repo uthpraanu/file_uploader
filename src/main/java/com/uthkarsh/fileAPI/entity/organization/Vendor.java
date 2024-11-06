@@ -41,6 +41,6 @@ public class Vendor {
     @JoinColumn(name = "address_id", referencedColumnName = "addressId", unique = true)
     private Address address;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "vendor_id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "vendor")
     private List<OrderQuotation> quotation = new ArrayList<>();
 }

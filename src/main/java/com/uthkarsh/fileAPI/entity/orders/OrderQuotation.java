@@ -42,16 +42,16 @@ public class OrderQuotation {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "url")
-    private String path;
-
     @Column(name = "file_hash")
     private String fileHash;
+
+    @Column(name = "url")
+    private String path;
 
     // Foreign key and relations
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Vendor vendor_id;
+    private Vendor vendor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PurchaseOrder order;

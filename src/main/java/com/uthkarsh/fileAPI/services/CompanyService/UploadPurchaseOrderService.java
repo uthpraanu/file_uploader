@@ -5,6 +5,7 @@ import com.uthkarsh.fileAPI.entity.orders.OrderQuotation;
 import com.uthkarsh.fileAPI.entity.orders.PurchaseOrder;
 import com.uthkarsh.fileAPI.entity.organization.Company;
 import com.uthkarsh.fileAPI.exception.FileNotFoundException;
+import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
 import com.uthkarsh.fileAPI.repository.orders.PurchaseOrderRepository;
 import com.uthkarsh.fileAPI.repository.organization.CompanyRepository;
@@ -61,11 +62,17 @@ public class UploadPurchaseOrderService {
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
 
+        if(file.isEmpty()){
+            throw new FileNotFoundException("file not found");
+        }
+
         purchaseOrder.setOrderName(file.getName());
         purchaseOrder.setFileSize(file.getSize());
         purchaseOrder.setFileType(file.getContentType());
+
         purchaseOrder.setUploadDate(LocalDate.now());
         purchaseOrder.setExpiryDate(LocalDate.now()); // add further date here
+
         purchaseOrder.setUploadBy("someone");
         purchaseOrder.setStatus("1");
         purchaseOrder.setDescription("some description");
@@ -78,10 +85,21 @@ public class UploadPurchaseOrderService {
         }
 
         purchaseOrder.setCompany(c.get());
-        purchaseOrder.setFileUrl(uploadToFileSystem(file));
 
-        purchaseOrderRepository.save(purchaseOrder);
+        try {
+            purchaseOrder.setFileUrl(uploadToFileSystem(file));
+        }
+        catch (Exception e){
+            throw new FileNotFoundException("cannot add file url to the database");
+        }
 
-        return ResponseEntity.ok("something");
+        try{
+            purchaseOrderRepository.save(purchaseOrder);
+        }
+        catch (Exception e){
+            throw new RepositoryException("failed to save the data");
+        }
+
+        return ResponseEntity.ok("successfully saved");
     }
 }
