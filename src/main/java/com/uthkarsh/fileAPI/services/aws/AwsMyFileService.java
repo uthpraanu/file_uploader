@@ -37,7 +37,31 @@ public class AwsMyFileService {
 
         String a = s3StorageService.getS3Client().getUrl(s3StorageService.getBucketName(), uniqueFileName).toString();
 
+
         return ResponseEntity.ok("success : "+a);
+
+    }
+
+    public String upload1(MultipartFile file) throws IOException {
+
+        String uniqueFileName = UUID.randomUUID()+"_"+file.getOriginalFilename();
+
+        ObjectMetadata metadata = new ObjectMetadata();
+
+        metadata.setContentType(file.getContentType());
+        metadata.setContentLength(file.getSize());
+
+        s3StorageService.getS3Client().putObject(
+                new PutObjectRequest(
+                        s3StorageService.getBucketName(),
+                        uniqueFileName,
+                        file.getInputStream(),
+                        metadata
+                ));
+
+        String a = s3StorageService.getS3Client().getUrl(s3StorageService.getBucketName(), uniqueFileName).toString();
+
+        return a;
     }
 
     public ResponseEntity<?> download(String fileName){

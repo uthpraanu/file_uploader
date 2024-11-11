@@ -9,6 +9,7 @@ import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
 import com.uthkarsh.fileAPI.repository.orders.PurchaseOrderRepository;
 import com.uthkarsh.fileAPI.repository.organization.CompanyRepository;
+import com.uthkarsh.fileAPI.services.aws.AwsMyFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,9 @@ public class UploadPurchaseOrderService {
 
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private AwsMyFileService awsMyFileService;
 
     @Autowired
     private PurchaseOrderRepository purchaseOrderRepository;
@@ -87,9 +91,11 @@ public class UploadPurchaseOrderService {
         purchaseOrder.setCompany(c.get());
 
         try {
-            purchaseOrder.setFileUrl(uploadToFileSystem(file));
+            //purchaseOrder.setFileUrl(uploadToFileSystem(file));
+            purchaseOrder.setFileUrl(awsMyFileService.upload1(file));
         }
         catch (Exception e){
+            e.printStackTrace();
             throw new FileNotFoundException("cannot add file url to the database");
         }
 
