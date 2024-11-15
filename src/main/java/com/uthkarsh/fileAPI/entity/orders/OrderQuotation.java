@@ -21,7 +21,7 @@ public class OrderQuotation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long quotationId;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "file_size")
@@ -42,10 +42,10 @@ public class OrderQuotation {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "file_hash")
+    @Column(name = "file_hash", nullable = false)
     private String fileHash;
 
-    @Column(name = "url")
+    @Column(name = "file_url", nullable = false)
     private String path;
 
     // Foreign key and relations

@@ -76,6 +76,7 @@ public class CompanyPurchaseOrderService implements OrganizationDocumentService 
             purchaseOrder.setDescription("purchase order uploaded");
             purchaseOrder.setFileHash("dummy-hash");
             purchaseOrder.setCompany(company);
+            purchaseOrder.setFileUrl(fileUrl);
 
             // Save PurchaseOrder to the repository
             purchaseOrderRepository.save(purchaseOrder);

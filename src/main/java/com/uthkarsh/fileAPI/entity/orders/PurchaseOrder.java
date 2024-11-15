@@ -21,7 +21,7 @@ public class PurchaseOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String orderName;
 
     @Column(name = "file_size")
@@ -45,13 +45,10 @@ public class PurchaseOrder {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "url")
-    private String orderUrlPath;
-
-    @Column(name = "file_hash")
+    @Column(name = "file_hash", nullable = false)
     private String fileHash;
 
-    @Column(name = "file_url")
+    @Column(name = "file_url", nullable = false)
     private String fileUrl;
 
     // Foreign key and relations
