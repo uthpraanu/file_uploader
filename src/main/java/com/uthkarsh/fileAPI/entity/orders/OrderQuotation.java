@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 @Table(
         name = "order_quotation",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "order"})
+        uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "order_id"})
 )
 @Data
 @NoArgsConstructor
@@ -51,8 +51,10 @@ public class OrderQuotation {
     // Foreign key and relations
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vendor_id", nullable = false)
     private Vendor vendor;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
     private PurchaseOrder order;
 }

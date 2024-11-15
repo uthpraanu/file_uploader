@@ -15,10 +15,10 @@ public class CompanyService {
     @Autowired
     private DocumentFactory documentFactory;
 
-    public String uploadPurchaseOrder(LongDTO id, FileUploaderEnum type, MultipartFile file){
+    public String uploadPurchaseOrder(LongDTO companyID, FileUploaderEnum type, MultipartFile file){
         OrganizationDocumentService companyOrganization = documentFactory.getOrganizationService(OrganizationEnum.COMPANY);
 
-        return companyOrganization.uploadMethodCall(new CompanyUploadMethodParameter(id.getId(),type,file));
+        return companyOrganization.uploadMethodCall(new CompanyUploadMethodParameter(companyID.getId(),type,file));
 
     }
 }

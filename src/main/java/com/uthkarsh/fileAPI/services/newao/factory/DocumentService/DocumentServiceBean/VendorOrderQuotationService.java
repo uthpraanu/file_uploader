@@ -113,7 +113,9 @@ public class VendorOrderQuotationService implements OrganizationDocumentService 
 
     @Override
     public String uploadMethodCall(OrganizationUploadMethodParameter parameters) {
+
         VendorUploadMethodParameter data = (VendorUploadMethodParameter) parameters;
+
          return upload(data.getVendorID(), data.getPurchaseOrderID(), data.getType(), data.getFile());
     }
 }
