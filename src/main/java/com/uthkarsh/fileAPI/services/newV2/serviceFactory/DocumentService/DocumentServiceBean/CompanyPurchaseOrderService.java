@@ -1,17 +1,17 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean;
 
 import com.uthkarsh.fileAPI.entity.orders.PurchaseOrder;
 import com.uthkarsh.fileAPI.entity.organization.Company;
 import com.uthkarsh.fileAPI.enums.FileUploaderEnum;
 import com.uthkarsh.fileAPI.exception.FileNotFoundException;
 import com.uthkarsh.fileAPI.exception.RepositoryException;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
 import com.uthkarsh.fileAPI.repository.orders.PurchaseOrderRepository;
 import com.uthkarsh.fileAPI.repository.organization.CompanyRepository;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderFactory.FileUploaderFactory;
-import com.uthkarsh.fileAPI.services.newV2.factory.utility.organizationParameters.CompanyUploadMethodParameter;
-import com.uthkarsh.fileAPI.services.newV2.factory.utility.organizationParameters.OrganizationMethoParameter.OrganizationUploadMethodParameter;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderFactory.FileUploaderFactory;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters.CompanyUploadMethodParameter;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters.OrganizationMethoParameter.OrganizationUploadMethodParameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

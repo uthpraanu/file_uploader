@@ -9,12 +9,11 @@ import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
 import com.uthkarsh.fileAPI.mapper.vendor.VendorMapper;
 import com.uthkarsh.fileAPI.repository.organization.VendorRepository;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceFactory.DocumentFactory;
-import com.uthkarsh.fileAPI.services.newV2.factory.utility.organizationParameters.VendorUploadMethodParameter;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceFactory.DocumentFactory;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters.VendorUploadMethodParameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

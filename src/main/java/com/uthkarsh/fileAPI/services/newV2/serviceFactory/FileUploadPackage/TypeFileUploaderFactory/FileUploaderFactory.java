@@ -1,10 +1,10 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderFactory;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderFactory;
 
 import com.uthkarsh.fileAPI.enums.FileUploaderEnum;
 import com.uthkarsh.fileAPI.exception.PersonalizedFactoryException;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.AwsFileUpload;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.LocalFileUpload;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.AwsFileUpload;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.LocalFileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.utility.organizationParameters;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters;
 
 import com.uthkarsh.fileAPI.enums.FileUploaderEnum;
-import com.uthkarsh.fileAPI.services.newV2.factory.utility.organizationParameters.OrganizationMethoParameter.OrganizationUploadMethodParameter;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters.OrganizationMethoParameter.OrganizationUploadMethodParameter;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 

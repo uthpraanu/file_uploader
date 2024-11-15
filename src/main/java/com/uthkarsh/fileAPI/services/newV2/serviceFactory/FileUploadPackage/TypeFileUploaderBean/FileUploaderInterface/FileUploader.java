@@ -1,4 +1,4 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface;
 
 import org.springframework.web.multipart.MultipartFile;
 

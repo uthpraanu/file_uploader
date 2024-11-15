@@ -1,9 +1,9 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean;
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.uthkarsh.fileAPI.configuration.S3StorageService;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

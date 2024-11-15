@@ -1,10 +1,10 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceFactory;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceFactory;
 
 import com.uthkarsh.fileAPI.enums.OrganizationEnum;
 import com.uthkarsh.fileAPI.exception.PersonalizedFactoryException;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean.CompanyPurchaseOrderService;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
-import com.uthkarsh.fileAPI.services.newV2.factory.DocumentService.DocumentServiceBean.VendorOrderQuotationService;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.CompanyPurchaseOrderService;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.VendorOrderQuotationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

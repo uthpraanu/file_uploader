@@ -1,7 +1,7 @@
-package com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean;
+package com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean;
 
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
-import com.uthkarsh.fileAPI.services.newV2.factory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileUploadPackage.TypeFileUploaderBean.FileUploaderInterface.FileUploader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
