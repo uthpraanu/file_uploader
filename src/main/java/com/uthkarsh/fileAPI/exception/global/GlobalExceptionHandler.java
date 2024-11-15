@@ -1,6 +1,7 @@
 package com.uthkarsh.fileAPI.exception.global;
 
 import com.uthkarsh.fileAPI.exception.FileNotFoundException;
+import com.uthkarsh.fileAPI.exception.PersonalizedFactoryException;
 import com.uthkarsh.fileAPI.exception.RepositoryException;
 import com.uthkarsh.fileAPI.exception.ServiceFailedException;
 import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
@@ -38,7 +39,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleIOException(IOException ex){
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body("some error downloading the file");
+                .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(PersonalizedFactoryException.class)
+    public ResponseEntity<?> handlePersonalizedFactoryException(PersonalizedFactoryException ex){
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ex.getMessage());
     }
 
 }
