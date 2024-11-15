@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 @Service
 public class LocalFileUpload implements FileUploader {
@@ -33,7 +34,8 @@ public class LocalFileUpload implements FileUploader {
         }
 
         //Construct the file pat
-        Path filePath = Paths.get(path+"\\"+file.getOriginalFilename());
+        String uniqueFileName = UUID.randomUUID()+"_"+file.getOriginalFilename();
+        Path filePath = Paths.get(path+"\\"+uniqueFileName);
 
         logger.debug("File will be saved to path: {}",filePath);
 

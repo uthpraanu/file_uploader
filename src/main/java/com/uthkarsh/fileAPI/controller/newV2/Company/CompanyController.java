@@ -22,10 +22,16 @@ public class CompanyController {
     }
 
     @PostMapping(value = "/order", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> addPurchaseOrder(@RequestPart("id")LongDTO companyID,
+    public ResponseEntity<?> uploadPurchaseOrder(@RequestPart("id")LongDTO companyID,
                                               @RequestPart("type") FileUploaderEnum type,
                                               @RequestPart("file")MultipartFile purchaseOrder){
 
         return ResponseEntity.ok(companyService.uploadPurchaseOrder(companyID, type, purchaseOrder));
+    }
+
+    @GetMapping(value = "/order/{storageType}/{fileID}")
+    public ResponseEntity<?> downloadPurchaseOrder(@PathVariable Long fileID,
+                                                   @PathVariable FileUploaderEnum storageType){
+        return ResponseEntity.internalServerError().body("implementation pending");
     }
 }

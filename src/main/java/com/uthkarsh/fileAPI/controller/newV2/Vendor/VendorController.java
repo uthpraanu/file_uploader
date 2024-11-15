@@ -28,4 +28,10 @@ public class VendorController {
                                                   @RequestPart("file")MultipartFile file){
         return ResponseEntity.ok(vendorService.uploadOrderQuotation(vendorID, orderID, type, file));
     }
+
+    @GetMapping(value = "/quotation/{storageType}/{fileID}")
+    public ResponseEntity<?> downloadOrderQuotation(@PathVariable Long fileID,
+                                                   @PathVariable FileUploaderEnum storageType){
+        return ResponseEntity.internalServerError().body("implementation pending");
+    }
 }
