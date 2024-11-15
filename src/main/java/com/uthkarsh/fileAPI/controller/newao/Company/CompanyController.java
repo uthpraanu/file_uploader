@@ -25,10 +25,9 @@ public class CompanyController {
 
     @PostMapping(value = "/order", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> addPurchaseOrder(@RequestPart("id")LongDTO id,
+                                              @RequestPart("type") FileUploaderEnum type,
                                               @RequestPart("file")MultipartFile purchaseOrder){
 
-        return ResponseEntity.ok(companyService.uploadPurchaseOrder(id, FileUploaderEnum.LOCAL, purchaseOrder));
-
-
+        return ResponseEntity.ok(companyService.uploadPurchaseOrder(id, type, purchaseOrder));
     }
 }
