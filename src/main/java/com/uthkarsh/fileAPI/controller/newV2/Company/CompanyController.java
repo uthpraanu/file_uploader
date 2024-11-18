@@ -5,6 +5,8 @@ import com.uthkarsh.fileAPI.dto.general.LongDTO;
 import com.uthkarsh.fileAPI.enums.FileUploaderEnum;
 import com.uthkarsh.fileAPI.services.newV2.Company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +31,14 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.uploadPurchaseOrder(companyID, type, purchaseOrder));
     }
 
-    @GetMapping(value = "/order/{storageType}/{fileID}")
-    public ResponseEntity<?> downloadPurchaseOrder(@PathVariable Long fileID,
+    @GetMapping(value = "/order/{storageType}/{fileName}")
+    public ResponseEntity<?> downloadPurchaseOrder(@PathVariable String fileName,
                                                    @PathVariable FileUploaderEnum storageType){
-        return ResponseEntity.internalServerError().body("implementation pending");
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=\""+fileName+"\"")
+                .body(
+                        companyService.downloadPurchaseOrder(fileName, storageType)
+                );
     }
 }

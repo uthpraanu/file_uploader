@@ -19,7 +19,6 @@ public class FileUploadController {
 
     @GetMapping(value = "/download/{fileName}")
     public ResponseEntity<?> downloadFile(@PathVariable String fileName){
-        System.out.println("reached");
         return localFileService.download(fileName);
     }
 }

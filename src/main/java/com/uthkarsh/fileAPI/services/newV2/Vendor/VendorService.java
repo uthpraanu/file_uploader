@@ -11,8 +11,11 @@ import com.uthkarsh.fileAPI.mapper.vendor.VendorMapper;
 import com.uthkarsh.fileAPI.repository.organization.VendorRepository;
 import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceBean.DocumentServiceInterface.OrganizationDocumentService;
 import com.uthkarsh.fileAPI.services.newV2.serviceFactory.DocumentService.DocumentServiceFactory.DocumentFactory;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileDownloadPackage.FileDownloadFactory.DownloadFactory;
+import com.uthkarsh.fileAPI.services.newV2.serviceFactory.FileDownloadPackage.TypeFileDownloadBean.FileDownloadInterface.FileDownload;
 import com.uthkarsh.fileAPI.services.newV2.serviceFactory.utility.organizationParameters.VendorUploadMethodParameter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +26,9 @@ public class VendorService {
     private DocumentFactory documentFactory;
 
     @Autowired
+    private DownloadFactory downloadFactory;
+
+    @Autowired
     private VendorRepository vendorRepository;
 
     public String uploadOrderQuotation(LongDTO vendorID, LongDTO orderID, FileUploaderEnum type, MultipartFile file){
@@ -30,6 +36,12 @@ public class VendorService {
         OrganizationDocumentService vendorOrganization = documentFactory.getOrganizationService(OrganizationEnum.VENDOR);
 
         return vendorOrganization.uploadMethodCall(new VendorUploadMethodParameter(vendorID.getId(), orderID.getId(), type, file));
+    }
+
+    public Resource downloadOrderQuotation(String name, FileUploaderEnum type){
+        FileDownload typeFileDownload = downloadFactory.getTypeFileDownloader(type);
+
+        return typeFileDownload.download(name);
     }
 
     public String addNewVendor(VendorDTO vendorDTO){
