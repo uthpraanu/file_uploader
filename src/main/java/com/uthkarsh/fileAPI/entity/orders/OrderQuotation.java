@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 @Table(
         name = "order_quotation",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "order"})
+        uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "order_id"})
 )
 @Data
 @NoArgsConstructor
@@ -21,7 +21,7 @@ public class OrderQuotation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long quotationId;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "file_size")
@@ -42,17 +42,19 @@ public class OrderQuotation {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "file_hash")
+    @Column(name = "file_hash", nullable = false)
     private String fileHash;
 
-    @Column(name = "url")
+    @Column(name = "file_url", nullable = false)
     private String path;
 
     // Foreign key and relations
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vendor_id", nullable = false)
     private Vendor vendor;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
     private PurchaseOrder order;
 }
