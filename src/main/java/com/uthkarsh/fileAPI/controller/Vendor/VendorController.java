@@ -5,6 +5,7 @@ import com.uthkarsh.fileAPI.dto.vendor.VendorDTO;
 import com.uthkarsh.fileAPI.enums.FileUploaderEnum;
 import com.uthkarsh.fileAPI.services.Vendor.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +30,14 @@ public class VendorController {
         return ResponseEntity.ok(vendorService.uploadOrderQuotation(vendorID, orderID, type, file));
     }
 
-    @GetMapping(value = "/quotation/{storageType}/{fileID}")
-    public ResponseEntity<?> downloadOrderQuotation(@PathVariable Long fileID,
+    @GetMapping(value = "/quotation/{storageType}/{fileName}")
+    public ResponseEntity<?> downloadOrderQuotation(@PathVariable String fileName,
                                                    @PathVariable FileUploaderEnum storageType){
-        return ResponseEntity.internalServerError().body("implementation pending");
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=\""+fileName+"\"")
+                .body(
+                        vendorService.downloadOrderQuotation(fileName, storageType)
+                );
     }
 }
